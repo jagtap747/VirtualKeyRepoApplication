@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 import com.app.menuservice.MenuService;
 import com.app.menuservice.SubMenuService;
+import com.simplilearn.menudao.MenuDao;
 
 public class SubMenu implements SubMenuService {
 	
 	ArrayList<String> choice=new ArrayList<>();
-	
+	MenuDao menu=null;
 	
 	public SubMenu() {
 		choice.add("1. Create A File");
@@ -59,18 +60,22 @@ public class SubMenu implements SubMenuService {
 	public void FileSubMenu(int option) {
 		switch(option) {
 
-        case 1: // Add File
-          
-            System.out.println("1111111111111");
-           
+        case 1: // Create new a File
+            menu=new MenuDao();
+            menu.CreateFile();
+            //menu.ShowFiles();
+            this.DisplaySubMenu();
             break;
-        case 2: // Delete File
-           
-        	  System.out.println("222222222");
-              
+        case 2: // Delete a File
+        	menu=new MenuDao();
+        	menu.DeleteFile();
+        	//menu.ShowFiles();
+        	this.DisplaySubMenu();
             break;
         case 3: // Search File
-        	  System.out.println("3333333333333333");
+        	  menu=new MenuDao();
+        	  menu.SearchFile();
+        	  this.DisplaySubMenu();
               
             break;
         
