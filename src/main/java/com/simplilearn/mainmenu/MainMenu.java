@@ -78,7 +78,10 @@ public class MainMenu implements MenuService{
 				break;
 		case 2:
 			 	
-			 	
+			SubMenu s=new SubMenu();
+			s.DisplaySubMenu();
+			s.GetInputFromUserforSubMenu();
+			this.DisplayMainMenu();
 			 	break;
 		 default:
              System.out.println("Invalid Option");
