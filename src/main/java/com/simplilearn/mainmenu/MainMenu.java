@@ -17,7 +17,7 @@ public class MainMenu implements MenuService{
 	
 	private String projectName="Application Name :Vertual Key Repository";
 	private String  developedBy="Developed By :Surekha Jagtap";
-	private String contactUs="Contact US :www.Vertual.com";
+	private String contactUs="Contact US: Lockers Pvt. Ltd.";
 	
 	private ArrayList<String> options = new ArrayList<>();
 	

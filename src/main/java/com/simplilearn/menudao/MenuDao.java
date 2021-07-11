@@ -24,8 +24,17 @@ public class MenuDao {
 		
 	 if(drivename!=null) {
 		 try {
-			 Files.list(Paths.get(drivename)).filter(Files::isRegularFile).sorted().forEach(System.out::println);
-		 	} catch (IOException e) {
+			 //List of all files and directories
+			 File directoryPath = new File(drivename);
+			 String contents[] = directoryPath.list();
+			 if(contents.length<0) {
+				 System.out.println(drivename+"Empty directory,No file and folder available.");
+			 }else {
+			 System.out.println("List of files and directories of drive : "+ drivename);
+		      for(int i=0; i<contents.length; i++) {
+		         System.out.println(contents[i]);
+		      }}
+		 	} catch (Exception e) {
 		 		// TODO Auto-generated catch block
 		 		e.printStackTrace();
 		 	}
@@ -58,7 +67,8 @@ public class MenuDao {
 		
 		 System.out.println("Please Enter the Filename to be Deleted:");
 		 String fileName = this.getInput();
-		 File file= new File(drivename+fileName);   
+		 File file= new File(drivename+fileName);
+		// File file= new File("D:\\DEMO\\"+fileName);
 		 if(file.delete())                      //returns Boolean value  
 		 {  
 		 System.out.println(file.getName() + " file deleted Successfully......");   //getting and printing the file name  
